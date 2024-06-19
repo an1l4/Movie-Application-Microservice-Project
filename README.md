@@ -110,3 +110,26 @@ This logic would translate into the following packages:
 - rating/internal/repository
 - rating/pkg
 
+### Movie Service
+
+logic of the movie service:
+
+- **API:** Get the details for a movie, including the aggregated movie rating and movie metadata.
+- **Database:** None.
+- **Interacts with services:** Movie metadata and rating.
+- **Data model type:** Movie details
+
+This logic would translate into the following packages:
+
+- cmd: Contains the main function for starting the service
+- controller: Our service logic (read rating and metadata)
+- gateway: Logic for calling the other services
+- handler: API handler for a service
+
+The directory structure is as follows:
+
+- movie/cmd
+- movie/internal/controller
+- movie/internal/gateway
+- movie/internal/handler
+- movie/pkg
