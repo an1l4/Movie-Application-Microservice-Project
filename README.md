@@ -88,3 +88,6 @@ This logic would translate into the following packages:
 - metadata/internal/handler
 - metadata/internal/repository
 - metadata/pkg
+
+### Rating Service
+
