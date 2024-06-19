@@ -91,3 +91,22 @@ This logic would translate into the following packages:
 
 ### Rating Service
 
+the logic of the rating service:
+
+- **API:** Get the aggregated rating for a record and write a rating.
+- **Database:** Rating database.
+- **Interacts with services:** None.
+- **Data model type:** Rating.
+This logic would translate into the following packages:
+
+- **cmd:** Contains the main function for starting the service
+- **controller:** Our service logic (read and write ratings)
+- **handler:** API handler for a service
+- **repository:** Logic for accessing the movie metadata database
+
+- rating/cmd
+- rating/internal/controller
+- rating/internal/handler
+- rating/internal/repository
+- rating/pkg
+
