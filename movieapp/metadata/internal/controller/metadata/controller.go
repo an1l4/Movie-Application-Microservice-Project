@@ -5,14 +5,15 @@ import (
 	"errors"
 
 	"github.com/an1l4/movieapp/metadata/internal/repository"
-	"github.com/an1l4/movieapp/metadata/pkg"
+	"github.com/an1l4/movieapp/metadata/pkg/model"
 )
 
 // ErrNotFound is returned when a requested record is not found
 var ErrNotFound = errors.New("not found")
 
 type metadataRepository interface {
-	Get(ctx context.Context, id string) (*pkg.Metadata, error)
+	Get(ctx context.Context, id string) (*model.Metadata, error)
+	//Put(ctx context.Context, id string, )
 }
 
 // Controller defines a metadata service controller
@@ -27,7 +28,7 @@ func New(repo metadataRepository) *Controller {
 	}
 }
 
-func (c *Controller) Get(ctx context.Context, id string) (*pkg.Metadata, error) {
+func (c *Controller) Get(ctx context.Context, id string) (*model.Metadata, error) {
 
 	res, err := c.repo.Get(ctx, id)
 	if err != nil && errors.Is(err, repository.ErrNotFound) {
