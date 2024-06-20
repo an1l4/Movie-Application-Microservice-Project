@@ -134,10 +134,21 @@ The directory structure is as follows:
 - movie/internal/handler
 - movie/pkg
 
-consul
+#### Hashicorp consul
 
 docker run -d -p 8500:8500 -p 8600:8600/udp --name=dev-consul consul:1.9.5 agent -server -ui -node=server-1 -bootstrap-expect=1 -client=0.0.0.0
 
-UI
- http://localhost:8500/
- curl -v localhost:8083/movie?id=1
+#### UI
+http://localhost:8500/
+
+curl -v localhost:8083/movie?id=1
+
+#### proto generate
+
+protoc -I=api --go_out=. movie.proto     for data structure
+
+protoc -I=api --go_out=. --go-grpc_out=. movie.proto    service code in grpc format
+
+#### benchmarking
+
+
