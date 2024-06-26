@@ -162,3 +162,12 @@ docker exec -i movieexample_db mysql movieexample -h localhost -P 3306 --protoco
 grpcurl -plaintext -d '{"record_id":"1", "record_type": "movie", "user_id": "alex", "rating_value": 5}' localhost:8082 RatingService/PutRating
 
 grpcurl -plaintext -d '{"record_id":"1", "record_type": "movie"}' localhost:8082 RatingService/GetAggregatedRating
+
+#### binary build command
+
+GOOS=linux go build -o main cmd/*.go
+
+#### image build command
+docker build -t metadata .
+docker build -t movie .
+docker build -t rating .
